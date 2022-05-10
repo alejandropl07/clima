@@ -2,11 +2,11 @@ import React from "react";
 
 function Header({ title }) {
   return (
-    <nav>
-      <div className="nav-wrapper light-blue  darken-2">
-        <a href="#!" className="brand-logo">
+    <nav  className="navbar   navbar-expand-lg    navbar-dark bg-primary  justify-content-between">
+      <div className="container">
+        <h1>
           {title}
-        </a>
+        </h1>
       </div>
     </nav>
   );

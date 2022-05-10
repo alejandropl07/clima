@@ -1,9 +1,13 @@
+import Form from "./components/Form";
 import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Header title="Weather conditions" />
+      <div className="container">
+        <Form />
+      </div>
     </div>
   );
 }
