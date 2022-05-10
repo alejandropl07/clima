@@ -1,8 +1,18 @@
-import React from "react";
-
-const handleChange = (e) => {};
+import React, { useState } from "react";
 
 function Form() {
+  //State
+  const [search, saveSearch] = useState({
+    city: "",
+    country: "",
+  });
+
+  const handleChange = (e) => {
+    saveSearch({
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <div className="row justify-content-left mt-5 col-md-12">
       <div className="card ">
@@ -17,7 +27,11 @@ function Form() {
                     </label>
                   </div>
                   <div className="col-md-6">
-                    <input type="textarea" className="form-control" />
+                    <input
+                      type="textarea"
+                      className="form-control"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
