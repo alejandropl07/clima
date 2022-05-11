@@ -24,7 +24,7 @@ function App() {
         <Form queryData={queryData} />
         {error ? (
           <div className="font-weight-bold  alert alert-danger  text-center mt-3">
-            Ambos campos son obligatorios
+            Both fields are required
           </div>
         ) : null}
       </div>
