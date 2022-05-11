@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form({ queryData }) {
   //State
   const [search, saveSearch] = useState({
     city: "",
@@ -9,8 +9,15 @@ function Form() {
 
   const handleChange = (e) => {
     saveSearch({
+      ...search,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const getWeather = (e) => {
+    e.preventDefault();
+
+    queryData(search);
   };
 
   return (
@@ -19,7 +26,7 @@ function Form() {
         <div className="card-body">
           <div className="row">
             <div className="col-md-6">
-              <form>
+              <form onSubmit={getWeather}>
                 <div className="form-group mb-3 row">
                   <div className="col-md-3 mt-1">
                     <label>
@@ -29,6 +36,7 @@ function Form() {
                   <div className="col-md-6">
                     <input
                       type="textarea"
+                      name="city"
                       className="form-control"
                       onChange={handleChange}
                     />
