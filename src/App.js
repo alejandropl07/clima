@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Climate from "./components/Climate";
+import Error from "./components/Error";
 import Form from "./components/Form";
 import Header from "./components/Header";
 
@@ -34,16 +36,21 @@ function App() {
     saveResult(result);
   };
 
+  let component;
+  if (error) {
+    component = <Error message="Both fields are required" />;
+  } else if (result.cod === "404") {
+    component = <Error message="City not found" />;
+  } else {
+    component = <Climate result={result} />;
+  }
+
   return (
     <div>
       <Header title="Weather conditions" />
       <div className="container">
         <Form queryData={queryData} />
-        {error ? (
-          <div className="font-weight-bold  alert alert-danger  text-center mt-3">
-            Both fields are required
-          </div>
-        ) : null}
+        {component}
       </div>
     </div>
   );
